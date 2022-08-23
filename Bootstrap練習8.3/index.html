@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/f153136869.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>BootstrapPractice</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+      }
+
+      .navbar {
+        transition: all 0.2s ease;
+        background-color: #fff;
+        padding: 0rem;
+      }
+      /* .navbar .container a:hover {
+        color: #f4623a;
+        transition: all 0.2s ease;
+      } */
+      .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 0.5rem;
+      }
+      #navbarNav .navbar-nav .nav-item .nav-link:hover {
+        color: #f4623a;
+        transition: all 0.2s ease;
+      }
+
+      #navbarNav .navbar-nav .nav-item .nav-link.text-black:hover {
+        color: #f4623a !important;
+        opacity: 1;
+        transition: all 0.2s ease;
+      }
+      @media (min-width: 992px) {
+        .navbar {
+          background-color: transparent;
+        }
+      }
+      @media (min-width: 992px) {
+        .navbar .container a {
+          color: #fff;
+          opacity: 0.7;
+        }
+        #navbarNav .navbar-nav .nav-item .nav-link {
+          color: #fff;
+          opacity: 0.7;
+        }
+        .navbar .container a:hover {
+          color: #fff;
+          opacity: 1;
+          transition: all 0.2s ease;
+        }
+        #navbarNav .navbar-nav .nav-item .nav-link:hover {
+          color: #fff;
+          opacity: 1;
+          transition: all 0.2s ease;
+        }
+        .navbar .container a.text-black:hover {
+          color: #f4623a !important;
+          opacity: 1;
+          transition: all 0.2s ease;
+        }
+      }
+      img {
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      hr.divider {
+        height: 0.2rem;
+        max-width: 3.25rem;
+        margin: 1.5rem auto;
+        background-color: #f4623a;
+        opacity: 1;
+      }
+      hr.dividerI {
+        height: 0.2rem;
+        max-width: 3.25rem;
+        margin: 1.5rem auto;
+        background-color: #fff;
+        opacity: 1;
+      }
+      header.masthead {
+        padding-top: 10rem;
+        padding-bottom: calc(10rem - 4.5rem);
+        background: linear-gradient(
+            to bottom,
+            rgba(92, 77, 66, 0.8) 0%,
+            rgba(92, 77, 66, 0.8) 100%
+          ),
+          url("./img/bg-masthead.jpg");
+        max-width: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      @media (min-width: 992px) {
+        header.masthead {
+          height: 100vh;
+          min-height: 40rem;
+          padding-top: 4.5rem;
+          padding-bottom: 0rem;
+        }
+      }
+      h1 {
+        font-weight: 600;
+      }
+      p.mb-5 {
+        font-weight: 500;
+      }
+      .btn-xl {
+        padding: 1.25rem 2.25rem;
+        font-size: 0.85rem;
+        /* font-weight:900; */
+    
+        text-transform: uppercase;
+        border: none;
+        border-radius: 10rem;
+      }
+      .btn-primary {
+        color: #fff;
+        background-color: #f4623a;
+        border-color: #f4623a;
+      }
+      .btn-primary:hover {
+        background-color: #cf5331;
+        border-color: #c34e2e;
+        color: white;
+      }
+      .btn-primary:visited {
+        background-color: #cf5331;
+        border-color: #c34e2e;
+        color: white;
+      }
+      .btn-danger {
+        background-color: #fff;
+        color: black;
+      }
+      .btn-close {
+        background-color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      .secondContent {
+        background-color: #f4623a;
+        height: 50vh;
+        max-width: 100%;
+        color: #fff;
+      }
+      h2.text-white {
+        font-weight: 500;
+      }
+
+      .page-section.secondContent {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+      }
+      .page-section {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+      }
+      i {
+        color: #f4623a;
+      }
+      i.bi {
+        color: silver;
+      }
+      .card.text-dark {
+        background-color: #cf5331;
+      }
+      .card {
+        border: none !important;
+        border-radius: 0;
+        position: relative;
+      }
+      img {
+        object-fit: cover;
+      }
+      .modal-content {
+        width: auto;
+        transform: scale(1.5);
+      }
+      .card-body:hover img {
+        opacity: 0.2;
+        transition: all 0.2s ease;
+      }
+      .card:hover .text-box {
+        display: block;
+      }
+
+      .text-box {
+        text-align: center;
+        position: absolute;
+        color: #fff;
+        max-width: 100%;
+        display: none;
+        cursor: pointer;
+      }
+      .text-box p {
+        opacity: 0.5;
+        margin-bottom: 0;
+        font-size: 0.85rem;
+      }
+      a.active {
+        color: #f4623a !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- 導覽列 -->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+        <div class="container">
+          <a class="navbar-brand fw-bold nav-link" href="#">Start Bootstrap</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item mx-2">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="#about"
+                  id="for_about"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#service" id="for_service">Servies</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#portfolioSection" id="for_portfolio"
+                  >Portfolio</a
+                >
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#contact" id="for_contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <header class="masthead">
+      <div class="container h-100 px-4 px-lg-5">
+        <!-- 第一區塊 -->
+        <div
+          class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center"
+        >
+          <div
+            class="jumbotron px-4 px-lg-5 text-center col-8 align-self-center"
+          >
+            <h1 class="text-white font-weight-bold">
+              Your Favorite Place for Free Bootstrap Themes
+            </h1>
+            <hr class="my-4 divider" />
+            <p class="text-white mb-5">
+              Start Bootstrap can help you build better websites using the
+              Bootstrap framework! Just download a theme and start customizing,
+              no strings attached!
+            </p>
+
+            <a class="btn btn-primary btn-xl fw-bold" href="#" role="button"
+              >Learn more</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        id="about"
+        class="position-absolute start-0 bottom-0"
+        style="height: 72px"
+      ></div>
+    </header>
+
+    <section
+      class="secondContent page-section d-flex align-items-center justify-content-center h-100 position-relative"
+    >
+      <div class="container h-100 px-4 px-lg-5">
+        <div
+          class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center"
+        >
+          <div
+            class="jumbotron px-4 px-lg-5 text-center col-8 align-self-center"
+          >
+            <h2 class="text-white mt-0">We've got what you need!</h2>
+            <hr class="my-4 dividerI" />
+            <p class="mb-5 text-center">
+              Start Bootstrap has everything you need to get your new website up
+              and running in no time! Choose one of our open source, free to
+              download, and easy to use themes! No strings attached!
+            </p>
+
+            <a class="btn btn-light btn-xl fw-bold" href="#" role="button"
+              >GET STARTED!</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        id="service"
+        class="position-absolute start-0 bottom-0"
+        style="height: 71px"
+      ></div>
+    </section>
+
+    <section class="page-section position-relative serviceSection">
+      <div class="container px-4 px-lg-5">
+        <h2 class="text-center">At Your Service</h2>
+        <hr class="my-4 divider" />
+        <div class="row gx-4 gx-lg-5">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <div class="mb-4">
+                <i class="fa-regular fa-gem fa-2xl"></i>
+              </div>
+            </div>
+            <h3 class="mb-2 h4">Sturdy Themes</h3>
+            <p class="mb-0 text-mute">
+              Our themes are updated regularly to keep them bug free!
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <div class="mb-4">
+                <i class="fa-solid fa-laptop fa-2xl"></i>
+              </div>
+            </div>
+            <h3 class="mb-2 h4">Sturdy Themes</h3>
+            <p class="mb-0 text-mute">
+              Our themes are updated regularly to keep them bug free!
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <div class="mb-4">
+                <i class="fa-solid fa-globe fa-2xl"></i>
+              </div>
+            </div>
+            <h3 class="mb-2 h4">Sturdy Themes</h3>
+            <p class="mb-0 text-mute">
+              Our themes are updated regularly to keep them bug free!
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <div class="mb-4"><i class="fa-regular fa-heart fa-2xl"></i></div>
+            </div>
+            <h3 class="mb-2 h4">Sturdy Themes</h3>
+            <p class="mb-0 text-mute">
+              Our themes are updated regularly to keep them bug free!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        id="portfolioSection"
+        class="position-absolute start-0 bottom-0"
+        style="height: 71px"
+      ></div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card-body col-12 col-sm-6 col-md-6 col-lg-4 p-0">
+            <a
+              class=""
+              data-bs-toggle="modal"
+              href="#exampleModalToggle"
+              role="button"
+              ><div
+                class="card text-dark p-0 justify-content-center align-content-center"
+                style=""
+              >
+                <img src="./img/1.jpg" alt="" />
+                <div class="text-box align-self-center">
+                  <p class="card-text">CATEGORY</p>
+                  <h5 class="card-title">Project Name</h5>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="card-body col-12 col-sm-6 col-md-6 col-lg-4 p-0">
+            <a
+              class=""
+              data-bs-toggle="modal"
+              href="#exampleModalToggle2"
+              role="button"
+              ><div
+                class="card text-dark p-0 justify-content-center align-content-center"
+                style=""
+              >
+                <img src="./img/2.jpg" alt="" />
+                <div class="text-box align-self-center">
+                  <p class="card-text">CATEGORY</p>
+                  <h5 class="card-title">Project Name</h5>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="card-body col-12 col-sm-6 col-md-6 col-lg-4 p-0">
+            <a
+              class=""
+              data-bs-toggle="modal"
+              href="#exampleModalToggle3"
+              role="button"
+              ><div
+                class="card text-dark p-0 justify-content-center align-content-center"
+                style=""
+              >
+                <img src="./img/3.jpg" alt="" />
+                <div class="text-box align-self-center">
+                  <p class="card-text">CATEGORY</p>
+                  <h5 class="card-title">Project Name</h5>
+                </div>
+              </div></a
+            >
+          </div>
+
+          <div class="card-body col-12 col-sm-6 col-md-6 col-lg-4 p-0">
+            <a
+              class=""
+              data-bs-toggle="modal"
+              href="#exampleModalToggle4"
+              role="button"
+              ><div
+                class="card text-dark p-0 justify-content-center align-content-center"
+                style=""
+              >
+                <img src="./img/4.jpg" alt="" />
+                <div class="text-box align-self-center">
+                  <p class="card-text">CATEGORY</p>
+                  <h5 class="card-title">Project Name</h5>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="card-body col-12 col-sm-6 col-md-6 col-lg-4 p-0">
+            <a
+              class=""
+              data-bs-toggle="modal"
+              href="#exampleModalToggle5"
+              role="button"
+              ><div
+                class="card text-dark p-0 justify-content-center align-content-center"
+                style=""
+              >
+                <img src="./img/5.jpg" alt="" />
+                <div class="text-box align-self-center">
+                  <p class="card-text">CATEGORY</p>
+                  <h5 class="card-title">Project Name</h5>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="card-body col-12 col-sm-6 col-md-6 col-lg-4 p-0">
+            <a
+              class=""
+              data-bs-toggle="modal"
+              href="#exampleModalToggle6"
+              role="button"
+              ><div
+                class="card text-dark p-0 justify-content-center align-content-center"
+                style=""
+              >
+                <img src="./img/6.jpg" alt="" />
+                <div class="text-box align-self-center">
+                  <p class="card-text">CATEGORY</p>
+                  <h5 class="card-title">Project Name</h5>
+                </div>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="page-section d-flex align-items-center justify-content-center bg-dark position-relative"
+      id="download"
+    >
+      <div class="container px-4 px-lg-5">
+        <div class="jumbotron px-4 px-lg-5 text-center">
+          <h2 class="text-white mt-0 mb-3">
+            Free Download at Start Bootstrap!
+          </h2>
+
+          <a class="btn btn-light btn-xl fw-bold" href="#" role="button"
+            >DOWNLOAD NOW!</a
+          >
+        </div>
+      </div>
+      <div
+        id="contact"
+        class="position-absolute start-0 bottom-0"
+        style="height: 72px"
+      ></div>
+    </section>
+
+    <section class="page-section">
+      <form action="process.html" method="get" id="customerForm">
+        <div
+          class="container mb-5 col-lg-5 d-flex flex-column justify-content-center align-content-center mx-auto"
+        >
+          <div class="jumbotron text-center row align-self-center">
+            <h2 class="text-black-75 mt-0">Let's Get In Touch!</h2>
+            <hr class="my-4 divider" />
+            <p class="mb-5">
+              Ready to start your next project with us? Send us a messages and
+              we will get back to you as soon as possible!
+            </p>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="name"
+              class="form-control"
+              id="floatingName"
+              placeholder="Name"
+            />
+            <label for="floatingName">Full Name</label>
+            <div id="floatingNameFeedback" class="invalid-feedback">
+              A name is required.
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingEmail"
+              placeholder="name@example.com"
+            />
+            <label for="floatingEmail">Email address</label>
+            <div id="floatingEmailFeedback1" class="invalid-feedback">
+              An email is required.
+            </div>
+            <div id="floatingEmailFeedback2" class="invalid-feedback">
+              Email is not valid.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="phoneNumber"
+              class="form-control"
+              id="floatingPhoneNumber"
+              placeholder="PhoneNumber"
+            />
+            <label for="floatingPhoneNumber">Phone Number</label>
+            <div id="floatingPhoneNumberFeedback" class="invalid-feedback">
+              A phone number is required.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea"
+              style="height: 200px"
+            ></textarea>
+            <label for="floatingTextarea">Message</label>
+            <div id="floatingTextareaFeedback" class="invalid-feedback">
+              A Message is required.
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary btn-xl p-3 round-pill fw-bold text-white text-center form-btn"
+          >
+            SUBMIT
+          </button>
+        </div>
+        <div class="row gx-0 justify-content-center align-content-center w-100">
+          <div class="col-lg-4 mb-5 align-self-center text-center">
+            <i class="bi bi-phone text-black fs-1"></i>
+            <p class="text-black">+1 (555) 123-4567</p>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- 圖片輪播 -->
+    <div
+      class="modal fade"
+      id="exampleModalToggle"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent w-100 border-0">
+          <button
+            type="button"
+            class="btn-close align-self-end"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <img src="./img/1.jpg" alt="" />
+          <h5 class="card-title m-3 text-white align-self-center">
+            Project Name
+          </h5>
+        </div>
+      </div>
+      <button
+        class="btn fs-5 position-absolute start-0 top-50"
+        data-bs-target="#exampleModalToggle6"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-left-fill"></i>
+      </button>
+      <button
+        class="btn fs-5 position-absolute end-0 top-50"
+        data-bs-target="#exampleModalToggle2"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModalToggle2"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent w-100 border-0">
+          <button
+            type="button"
+            class="btn-close align-self-end"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <img src="./img/2.jpg" alt="" />
+          <h5 class="card-title m-3 text-white align-self-center">
+            Project Name
+          </h5>
+        </div>
+      </div>
+      <button
+        class="btn fs-5 position-absolute start-0 top-50"
+        data-bs-target="#exampleModalToggle"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-left-fill"></i>
+      </button>
+      <button
+        class="btn fs-5 position-absolute end-0 top-50"
+        data-bs-target="#exampleModalToggle3"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModalToggle3"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent w-100 border-0">
+          <button
+            type="button"
+            class="btn-close flex-grow-1 align-self-end"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <img src="./img/3.jpg" alt="" />
+          <h5 class="card-title m-3 text-white align-self-center">
+            Project Name
+          </h5>
+        </div>
+      </div>
+      <button
+        class="btn fs-5 position-absolute start-0 top-50"
+        data-bs-target="#exampleModalToggle2"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-left-fill"></i>
+      </button>
+      <button
+        class="btn fs-5 position-absolute end-0 top-50"
+        data-bs-target="#exampleModalToggle4"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModalToggle4"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel4"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent w-100 border-0">
+          <button
+            type="button"
+            class="btn-close flex-grow-1 align-self-end"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <img src="./img/4.jpg" alt="" />
+          <h5 class="card-title m-3 text-white align-self-center">
+            Project Name
+          </h5>
+        </div>
+      </div>
+      <button
+        class="btn fs-5 position-absolute start-0 top-50"
+        data-bs-target="#exampleModalToggle3"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-left-fill"></i>
+      </button>
+      <button
+        class="btn fs-5 position-absolute end-0 top-50"
+        data-bs-target="#exampleModalToggle5"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModalToggle5"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel5"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent w-100 border-0">
+          <button
+            type="button"
+            class="btn-close flex-grow-1 align-self-end"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <img src="./img/5.jpg" alt="" />
+          <h5 class="card-title m-3 text-white align-self-center">
+            Project Name
+          </h5>
+        </div>
+      </div>
+      <button
+        class="btn fs-5 position-absolute start-0 top-50"
+        data-bs-target="#exampleModalToggle4"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-left-fill"></i>
+      </button>
+      <button
+        class="btn fs-5 position-absolute end-0 top-50"
+        data-bs-target="#exampleModalToggle6"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModalToggle6"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel6"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent w-100 border-0">
+          <button
+            type="button"
+            class="btn-close flex-grow-1 align-self-end"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <img src="./img/6.jpg" alt="" />
+          <h5 class="card-title m-3 text-white align-self-center">
+            Project Name
+          </h5>
+        </div>
+      </div>
+      <button
+        class="btn fs-5 position-absolute start-0 top-50"
+        data-bs-target="#exampleModalToggle5"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-left-fill"></i>
+      </button>
+      <button
+        class="btn fs-5 position-absolute end-0 top-50"
+        data-bs-target="#exampleModalToggle"
+        data-bs-toggle="modal"
+        data-bs-dismiss="modal"
+      >
+        <i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="bg-light py-5">
+      <div class="container px-4 px-lg-5">
+        <div class="small text-center text-mured">
+          Copyright © 2022 - Company Name
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      //表單判斷是否為空值與無效值
+      const inputs = document.querySelectorAll("input");
+
+      inputs.forEach((input, index) => {
+        input.addEventListener("blur", (e) => {
+          let feedback1 = e.target.parentElement.children[2];
+          let feedback2 = e.target.parentElement.children[3];
+          if (input.value == "" || input.value == null) {
+            input.classList.add("is-invalid");
+            feedback1.classList.add("invalid-feedback");
+          } else if (index == 1 && !input.value.includes("@")) {
+            feedback1.classList.remove("invalid-feedback");
+            feedback1.classList.add("valid-feedback");
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+          } else {
+            if (index == 1) {
+              feedback2.classList.remove("valid-feedback");
+              feedback2.classList.add("invalid-feedback");
+              input.classList.add("is-valid");
+              input.classList.remove("is-invalid");
+              feedback1.classList.remove("valid-feedback");
+              feedback1.classList.add("invalid-feedback");
+            } else {
+            }
+            input.classList.add("is-valid");
+            input.classList.remove("is-invalid");
+            feedback1.classList.remove("valid-feedback");
+            feedback1.classList.add("invalid-feedback");
+          }
+        });
+      });
+      const textarea = document.querySelector("textarea");
+      textarea.addEventListener("blur", (e) => {
+        if (textarea.value == "" || textarea.value == null) {
+          textarea.classList.remove("is-valid");
+          textarea.classList.add("is-invalid");
+        } else {
+          textarea.classList.remove("is-invalid");
+          textarea.classList.add("is-valid");
+        }
+      });
+      //submit button
+      const formButton = document.querySelector(".form-btn");
+
+      formButton.addEventListener("click", (e) => {
+        let formContainer = e.target.parentElement;
+
+        if (
+          formContainer.children[1].classList.contains("is-valid") &&
+          formContainer.children[2].classList.contains("is-valid") &&
+          formContainer.children[3].classList.contains("is-valid") &&
+          formContainer.children[4].classList.contains("is-valid")
+        ) {
+          let form = document.querySelector("#customerForm");
+          form.submit();
+        } else {
+          e.preventDefault();
+        }
+      });
+      //nav bar 捲動效果
+      const navbar = document.querySelector(".navbar");
+      const a = document.querySelectorAll(".nav-link");
+      const about = document.querySelector("#about");
+      const service = document.querySelector(".serviceSection");
+      const forAbout = document.querySelector("#for_about");
+      const forService = document.querySelector("#for_service");
+      const forPortfolio = document.querySelector("#for_portfolio");
+      const aboutSection = document.querySelector(".masthead");
+      const portfolioSection = document.querySelector("#portfolio");
+      const downloadSection = document.querySelector("#download");
+
+      window.addEventListener("scroll", (e) => {
+        // console.log(e.path[1].scrollY);
+        // console.log("====================");
+        // console.dir();
+        // console.log(portfolioSection.offsetTop - about.offsetHeight);
+        if (
+          e.path[1].scrollY < about.offsetTop ||
+          e.path[1].scrollY > service.offsetTop - about.offsetHeight
+        ) {
+          forAbout.classList.remove("active");
+        } else if (e.path[1].scrollY > about.offsetTop) {
+          forAbout.classList.add("active");
+        }
+        if (
+          e.path[1].scrollY < service.offsetTop - about.offsetHeight ||
+          e.path[1].scrollY >= portfolioSection.offsetTop - about.offsetHeight
+        ) {
+          forService.classList.remove("active");
+        } else if (e.path[1].scrollY > service.offsetTop - about.offsetHeight) {
+          forService.classList.add("active");
+        }
+        if (
+          e.path[1].scrollY < portfolioSection.offsetTop - about.offsetHeight ||
+          e.path[1].scrollY > downloadSection.offsetTop - about.offsetHeight
+        ) {
+          forPortfolio.classList.remove("active");
+        } else if (
+          e.path[1].scrollY >=
+          portfolioSection.offsetTop - about.offsetHeight
+        ) {
+          forPortfolio.classList.add("active");
+        }
+
+        //nav bar捲動效果
+        if (e.path[1].scrollY > 0) {
+          navbar.classList.add("bg-light");
+          a.forEach((item) => {
+            item.classList.add("text-black");
+          });
+        } else if (e.path[1].scrollY <= 0) {
+          navbar.classList.remove("bg-light");
+
+          a.forEach((item) => {
+            item.classList.remove("text-black");
+          });
+        }
+      });
+      let hemberger = document.querySelector(".navbar-collapse");
+      a.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          hemberger.classList.remove("show");
+        });
+      });
+    </script>
+  </body>
+</html>

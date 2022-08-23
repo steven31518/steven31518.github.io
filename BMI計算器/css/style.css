@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+i {
+  pointer-events: none;
+}
+
+body {
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #52dd9c);
+}
+body header {
+  display: flex;
+  height: 15vh;
+  justify-content: center;
+  align-items: center;
+}
+body header h1 {
+  color: rgb(54, 82, 124);
+}
+body div.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body div.content div.weight {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 18%;
+  margin: 0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+}
+body div.content div.height {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 18%;
+  margin: 0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+}
+body div.content .buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 1rem 0;
+  font-size: 1.75rem;
+}
+body div.content .buttonGroup button {
+  width: 25%;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin: 2rem 0.5rem;
+  color: #fff;
+  background-color: rgb(3, 180, 121);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.2rem;
+  font-size: 1.25rem;
+}
+body div.content .buttonGroup button:hover {
+  background-color: rgb(3, 110, 74);
+}
+body div.content .buttonGroup button:active {
+  transform: scale(0.8);
+}
+body section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body section div.userHealth {
+  margin: 0.5rem 0;
+  width: 35%;
+  height: 38vh;
+  background-color: rgba(169, 169, 169, 0.315);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(9, 45, 110);
+  font-size: 1.75rem;
+  list-style: 2.5rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+@-webkit-keyframes scaleUp {
+  from {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scaleDown {
+  from {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */
