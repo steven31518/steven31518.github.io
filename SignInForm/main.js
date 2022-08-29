@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.target.children[3].children[0].value == ""
     ) {
       e.preventDefault();
-      setFormMessage(loginForm, "error", "Please enter your Account/password");
+      setFormMessage(loginForm, "error", "Please enter your Account/Password");
     } else if (
       e.target.children[2].children[0].value.length > 0 &&
       e.target.children[3].children[0].value.length
