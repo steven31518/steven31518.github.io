@@ -41,10 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.classList.remove("form--hidden");
     createAccountForm.classList.add("form--hidden");
   });
+
+  //登入判斷
   loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    //perform your AjAX/fetch login
-    setFormMessage(loginForm, "error", "Invalid username/password combination");
+    console.dir(e.target.children[2].children[0]);
+    if (
+      e.target.children[2].children[0].value == "" ||
+      e.target.children[3].children[0].value == ""
+    ) {
+      e.preventDefault();
+      setFormMessage(loginForm, "error", "Please enter your Account/password");
+    } else if (
+      e.target.children[2].children[0].value.length > 0 &&
+      e.target.children[3].children[0].value.length
+    ) {
+      e.preventDefault();
+      setFormMessage(
+        loginForm,
+        "error",
+        "Invalid username/password combination"
+      );
+    }
+    // e.preventDefault();
+    // //perform your AjAX/fetch login
+    // setFormMessage(loginForm, "error", "Invalid username/password combination");
   });
   document.querySelectorAll(".form__input").forEach((inputElement) => {
     inputElement.addEventListener("blur", (e) => {
@@ -55,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ) {
         setInputError(
           inputElement,
-          "Username must be at least 10 characters in length"
+          "Username must be at least 8 characters in length"
         );
       }
       var passwordRegxp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
