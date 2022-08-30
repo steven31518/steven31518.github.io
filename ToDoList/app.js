@@ -12,6 +12,12 @@ add.addEventListener("click", (e) => {
   if (todoText === "") {
     alert("Please Enter Some Text");
     return;
+  } else if (todoMonth > 12 || todoMonth < 0 || todoMonth === "") {
+    alert("請輸入正確日期");
+    return;
+  } else if (todoDay > 31 || todoDay < 0 || todoDay === "") {
+    alert("請輸入正確日期");
+    return;
   }
 
   let todo = document.createElement("div");
@@ -132,9 +138,6 @@ function loadData() {
   }
 }
 
-
-
-
 //依大小順序排列的funtion
 function mergeTime(arr1, arr2) {
   let result = [];
@@ -197,6 +200,3 @@ sortButton.addEventListener("click", () => {
   //load data
   loadData();
 });
-
-
-
