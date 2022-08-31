@@ -66,6 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // //perform your AjAX/fetch login
     // setFormMessage(loginForm, "error", "Invalid username/password combination");
   });
+
+  createAccountForm.addEventListener("submit", (e) => {
+    createAccountForm.querySelectorAll(".form__input").forEach((item) => {
+      if (item.classList.contains("form__input--error") || item.value === "") {
+        setFormMessage(createAccountForm, "error", "Please check the form");
+        e.preventDefault();
+      }
+    });
+  });
+
   document.querySelectorAll(".form__input").forEach((inputElement) => {
     inputElement.addEventListener("blur", (e) => {
       if (
