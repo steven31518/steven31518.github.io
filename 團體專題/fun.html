@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="stylesheet" href="./css/trip.css" />
+  <title>部落原鄉之旅-體驗行程</title>
+</head>
+
+<body>
+  <header class="masthead" id="banner-trip" >
+    <div class="container px-4 px-lg-5 h-100">
+      <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-end">
+          <h1 class="text-white font-weight-bold bg-info">體驗行程</h1>
+          <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 mb-5">
+          </p>
+          <!-- <a class="btn btn-primary btn-xl" href="#about">Find Out More</a> -->
+        </div>
+      </div>
+    </div>
+    <!-- <a href=""><img src="./img/trip-img/footerlogo.png" class="trip-logo" alt=""></a> -->
+    <a href="./index.html"><div class="trip-logo">返回</div></a>
+  </header>
+  <main>
+    <section class="page-section" id="services">
+      <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">地區</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5 mt-lg-0">
+              <button type="button" onclick="typeBtn('狩')" class="btn btn1 w-50 fs-3">
+                狩獵
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5 mt-lg-0">
+              <button type="button" onclick="typeBtn('祭')" class="btn btn2 w-50 fs-3">
+                祭典
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5 mt-lg-0">
+              <button type="button" onclick="typeBtn('樂')" class="btn btn3  w-50 fs-3">
+                文化
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5 mt-lg-0">
+              <button type="button" onclick="typeBtn('宴')" class="btn btn4  w-50 fs-3">
+                美食
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-section" id="trip">
+      <div class="container px-4 px-lg-5">
+        <!-- <h2 class="text-center mt-0">At Your Service</h2> -->
+        <!-- <hr class="divider"> -->
+        <div class="row gx-4 gx-lg-5 gy-5 trip-cards"></div>
+      </div>
+    </section>
+    <div class="top-button1 d-flex justify-content-center align-items-center flex-column" data-aos-offset="4000px"
+      data-aos="fade-up">
+      <i class="fa-solid fa-angle-up "></i>
+      <a href="#banner-trip" >TOP</a>
+    </div>
+    <div class="bird d-flex justify-content-end">
+      <img src="./img/trip-img/貓頭鷹2.png" alt="" />
+    </div>
+  </main>
+  <footer class="py-5 footer-bgc position-relative">
+    <div class="container">
+      <div class="row flex-column align-items-center">
+        <img class="col-2" src="./img/trip-img/footerlogo.png" alt="" />
+        <div class="col text-center text-muted small mt-4">
+          Copyright © 2022 - Company Name
+        </div>
+      </div>
+    </div>
+    <img class="position-absolute bottom-0" style="width: 100%" src="./img/trip-img/pattern.png" alt="" />
+  </footer>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function typeBtn(type) {
+      // 丟入卡片
+      fetch("./json/trip-data.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          let cards = document.querySelector(".trip-cards");
+          var tribeType = [];
+          var count = 0;
+          var tribes = data[0].result.records;
+          cards.innerHTML ='';
+          tribes.forEach((tribe) => {
+            var temp = tribe.類型;
+            if (temp.includes(type)) {
+              tribeType.push(tribe);
+            }
+          });
+          var tripBtns = document.querySelectorAll('.btn');
+          var tripBannerImage;
+          tripBtns.forEach((b) =>{
+            b.classList.remove('active');
+          })
+          if(type == "狩"){
+            btnNumber = 1;
+            tripBannerImage = "url('../img/trip-img/狩.jpg')";
+          }
+          else if(type == "祭"){
+            btnNumber = 2;
+            tripBannerImage = "url('../img/trip-img/祭.jpg')";
+          }
+          else if(type == "樂"){
+            btnNumber = 3;
+            tripBannerImage = "url('../img/trip-img/樂.jpg')";
+          }
+          else if(type == "宴"){
+            btnNumber = 4;
+            tripBannerImage = "url('../img/trip-img/宴.jpg')";
+            // bannerTitileColor = ""
+          }
+          console.log(btnNumber);
+          console.log(tripBannerImage);
+          document.querySelector(`.btn${btnNumber}`).classList.add('active');
+          document.querySelector('.masthead').style.backgroundImage = tripBannerImage;
+          tribeType.forEach((tribe) => {
+          var tripName = tribe.遊程名稱;
+          var tribeName = tribe.遊程涵蓋部落名稱;
+          var tribeLink = tribe.相關連結;
+          var tribetext = tribe.遊程資料;
+          var tribeImg = tribe.圖檔;
+          
+          cards.innerHTML += `
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="mt-5 mt-lg-0">
+                        <div class="card align-items-center">
+                            <picture class='w-100'><img src='${tribeImg}' alt=""></picture>
+                            <h3 class='name'>${tripName}</h3>
+                            <p class='cardContent'>${tribeName}</p>
+                            <span class='cardtext'>${tribetext}</span>
+                            <button type="button" class="btn border-dark trip-btn w-30"><a target="_blank" class="w-100" href="${tribeLink}">前往行程</a></button>
+                        </div>
+                    </div>
+                </div>
+                `;
+          })
+          
+          // console.log(document.querySelector('.masthead').style.backgroundImage);
+          // console.log(tripBannerImage);
+        });
+
+    }
+    typeBtn("樂");
+  </script>
+</body>
+
+</html>
